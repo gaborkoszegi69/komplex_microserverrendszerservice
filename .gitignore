@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# OpenAPI generated sources (when generated into src/main/java)
+/src/main/java/.openapi-generator/
+/src/main/java/hu/komplexmicroservice/rendszer_service/api/
+/src/main/java/README.md
