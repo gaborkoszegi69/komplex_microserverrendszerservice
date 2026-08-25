@@ -58,36 +58,49 @@ components:
         menu_id:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_gyoker:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_gyokersorrend:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_title:
           type: string
+          x-java-type: java.lang.String
         menu_link:
           type: string
+          x-java-type: java.lang.String
         menu_parentid:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_letre_felh_nev:
           type: string
+          x-java-type: java.lang.String
         menu_letre_dat:
           type: string
+          x-java-type: java.lang.String
         menu_action:
           type: string
+          x-java-type: java.lang.String
         menu_sorrend:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_image_index:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menu_shortcut:
           type: string
+          x-java-type: java.lang.String
         menu_hlevel:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         szrpfnk_uj_eng:
           type: boolean
         szrpfnk_modositas_eng:
@@ -99,26 +112,34 @@ components:
       properties:
         userid:
           type: string
+          x-java-type: java.lang.String
     TSearchMenuparameterekDto:
       type: object
       properties:
         menu_id:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
     TMenuparameterekDto:
       type: object
       properties:
         menuprm_id:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menuprm_menu_id:
           type: integer
           format: int64
+          x-java-type: java.lang.Long
         menuprm_name:
           type: string
+          x-java-type: java.lang.String
         menuprm_value:
           type: string
+          x-java-type: java.lang.String
         menuprm_letre_felh_nev:
           type: string
+          x-java-type: java.lang.String
         menuprm_letre_dat:
           type: string
+          x-java-type: java.lang.String

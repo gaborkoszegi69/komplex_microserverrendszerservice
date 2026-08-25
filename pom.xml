@@ -211,6 +211,9 @@
                                 <configPackage>hu.komplexmicroservice.rendszer-service.api.config</configPackage>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useSpringBoot3>true</useSpringBoot3>
+                                <!-- Disable JsonNullable and Optional in generated models -->
+                                <useJacksonNullable>false</useJacksonNullable>
+                                <useOptional>false</useOptional>
                             </configOptions>
                             <apiPackage>hu.komplexmicroservice.rendszer-service.api</apiPackage>
                             <modelPackage>hu.komplexmicroservice.rendszer-service.api.model</modelPackage>
