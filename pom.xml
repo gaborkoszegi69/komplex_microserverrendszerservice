@@ -32,7 +32,6 @@
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <querydsl.version>5.1.0</querydsl.version>
         <hibernate.version>6.2.7.Final</hibernate.version>
-        <lombok.version>1.18.28</lombok.version>
     </properties>
     <dependencies>
         <dependency>
@@ -65,7 +64,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
