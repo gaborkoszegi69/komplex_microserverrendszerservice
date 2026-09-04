@@ -21,7 +21,3 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
-
-# Prevent overwriting tracked API code unless generator is explicitly run
-/src/main/java/hu/komplexmicroservice/rendszer_service/api/**
-/src/main/java/.openapi-generator/**

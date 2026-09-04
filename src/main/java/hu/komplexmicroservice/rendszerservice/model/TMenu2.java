@@ -13,7 +13,7 @@ import org.hibernate.annotations.CompositeType;
 @AllArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(schema="01_sys", name = "t_menu_2")
+//@Table(schema="01_sys", name = "t_menu_2")
 public class TMenu2 {
     @Id
     @GeneratedValue
@@ -22,14 +22,11 @@ public class TMenu2 {
     @Column(name = "menu_id")
     private Long menu_id;
 
-    @Column(name = "rdbcon_host")
-    private String rdbconHost;
-
     @Column(name = "menu_gyoker")
     private String menu_gyoker;
 
     @Column(name = "menu_gyokersorrend")
-    private String menu_gyokersorrend;
+    private Long menu_gyokersorrend;
 
     @Column(name = "menu_title")
     private String menu_title;
@@ -73,6 +70,12 @@ public class TMenu2 {
     @Column(name = "szrpfnk_visible_eng")
     private Boolean szrpfnk_visible_eng;
 
+    public TMenu2(Long menu_id, Long menu_sorrend, String menu_gyoker, String menu_title, String menu_link) {
+        this.menu_id = menu_id;
+        this.menu_sorrend = menu_sorrend;
+        this.menu_gyoker = menu_gyoker;
+        this.menu_gyokersorrend = menu_gyokersorrend;
+    }
 
 
 }

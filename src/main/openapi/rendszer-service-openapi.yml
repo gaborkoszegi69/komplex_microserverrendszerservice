@@ -6,11 +6,17 @@ info:
 servers:
   - url: 'https://localhost:8187'
 paths:
-   '/DMMenuapi':
-    post:
+   '/DMMenuapi/{userid}':
+     get:
       tags:
         - MenuController
       operationId: getMenuByUserId
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -21,17 +27,17 @@ paths:
                 items:
                   $ref: '#/components/schemas/TMenu2Dto'
 
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              $ref: '#/components/schemas/TSearchUserDto'
-   '/DMmenuparameterekapi':
-     post:
+   '/DMMenuparameterek/{menu_id}':
+     get:
        tags:
          - MenuParameterekController
        operationId: getParameterekByUserId
+       parameters:
+         - name: menu_id
+           in: path
+           required: true
+           schema:
+             type: Long
        responses:
          '200':
            description: OK
@@ -42,13 +48,6 @@ paths:
                  items:
                    $ref: '#/components/schemas/TMenuparameterekDto'
 
-       requestBody:
-         content:
-           multipart/form-data:
-             schema:
-               type: object
-               $ref: '#/components/schemas/TSearchMenuparameterekDto'
-
 
 components:
   schemas:
@@ -58,88 +57,91 @@ components:
         menu_id:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_gyoker:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_gyokersorrend:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_title:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_link:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_parentid:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_letre_felh_nev:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_letre_dat:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_action:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_sorrend:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_image_index:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menu_shortcut:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menu_hlevel:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         szrpfnk_uj_eng:
           type: boolean
+          nullable: false
         szrpfnk_modositas_eng:
           type: boolean
+          nullable: false
         szrpfnk_visible_engs:
           type: boolean
+          nullable: false
     TSearchUserDto:
       type: object
       properties:
         userid:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
     TSearchMenuparameterekDto:
       type: object
       properties:
         menu_id:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
     TMenuparameterekDto:
       type: object
       properties:
         menuprm_id:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menuprm_menu_id:
           type: integer
           format: int64
-          x-java-type: java.lang.Long
+          nullable: false
         menuprm_name:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menuprm_value:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menuprm_letre_felh_nev:
           type: string
-          x-java-type: java.lang.String
+          nullable: false
         menuprm_letre_dat:
           type: string
-          x-java-type: java.lang.String
+          nullable: false

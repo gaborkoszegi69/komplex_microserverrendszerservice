@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.1</version>
+        <version>4.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>hu.komplexmicroservice</groupId>
@@ -31,7 +31,6 @@
         <spring-cloud.version>2025.1.2</spring-cloud.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <querydsl.version>5.1.0</querydsl.version>
-        <hibernate.version>6.2.7.Final</hibernate.version>
     </properties>
     <dependencies>
         <dependency>
@@ -41,6 +40,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -119,12 +123,10 @@
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-hibernate-cache-v62</artifactId>
-            <version>14.0.17.Final</version>
         </dependency>
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-spring6-embedded</artifactId>
-            <version>14.0.17.Final</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -235,6 +237,7 @@
                                         <configPackage>hu.komplexmicroservice.rendszer-service.api.config</configPackage>
                                         <interfaceOnly>true</interfaceOnly>
                                         <useSpringBoot3>true</useSpringBoot3>
+                                        <openApiNullable>false</openApiNullable>
                                         <useJacksonNullable>false</useJacksonNullable>
                                         <useOptional>false</useOptional>
                                     </configOptions>
@@ -243,9 +246,12 @@
                                     <typeMappings>
                                         <integer>Long</integer>
                                         <long>Long</long>
+                                        <string>String</string>
+                                        <boolean>Boolean</boolean>
                                     </typeMappings>
                                     <importMappings>
                                         <Long>java.lang.Long</Long>
+                                        <String>java.lang.String</String>
                                         <Boolean>java.lang.Boolean</Boolean>
                                     </importMappings>
 
