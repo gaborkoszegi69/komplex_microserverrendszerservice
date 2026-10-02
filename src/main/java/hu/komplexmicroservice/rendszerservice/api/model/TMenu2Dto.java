@@ -5,6 +5,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
+
+import jakarta.persistence.Column;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -27,54 +29,38 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T18:20:09.809915324+02:00[Europe/Budapest]")
 public class TMenu2Dto {
 
-  @JsonProperty("menu_id")
-  private Long menuId = null;
+  private Long menu_id;
 
-  @JsonProperty("menu_gyoker")
-  private Long menuGyoker = null;
+  private String menu_gyoker;
 
-  @JsonProperty("menu_gyokersorrend")
-  private Long menuGyokersorrend = null;
+  private Long menu_gyokersorrend;
 
-  @JsonProperty("menu_title")
-  private String menuTitle = null;
+  private String menu_title;
 
-  @JsonProperty("menu_link")
-  private String menuLink = null;
+  private String menu_link;
 
-  @JsonProperty("menu_parentid")
-  private Long menuParentid = null;
+  private Long menu_parentid;
 
-  @JsonProperty("menu_letre_felh_nev")
-  private String menuLetreFelhNev = null;
+  private String menu_letre_felh_nev;
 
-  @JsonProperty("menu_letre_dat")
-  private String menuLetreDat = null;
+  private String menu_letre_dat;
 
-  @JsonProperty("menu_action")
-  private String menuAction = null;
+  private String menu_action;
 
-  @JsonProperty("menu_sorrend")
-  private Long menuSorrend = null;
+  private Long menu_sorrend;
 
-  @JsonProperty("menu_image_index")
-  private Long menuImageIndex = null;
+  private Long menu_image_index;
 
-  @JsonProperty("menu_shortcut")
-  private String menuShortcut = null;
+  private String menu_shortcut;
 
-  @JsonProperty("menu_hlevel")
-  private Long menuHlevel = null;
+  private Long menu_hlevel;
 
-  @JsonProperty("szrpfnk_uj_eng")
-  private Boolean szrpfnkUjEng = null;
+  private Boolean szrpfnk_uj_eng;
 
-  @JsonProperty("szrpfnk_modositas_eng")
-  private Boolean szrpfnkModositasEng = null;
+  private Boolean szrpfnk_modositas_eng;
 
-  @JsonProperty("szrpfnk_visible_engs")
-  private Boolean szrpfnkVisibleEngs = null;
+  private Boolean szrpfnk_torles_eng;
 
-
+  private Boolean szrpfnk_visible_eng;
 }
 

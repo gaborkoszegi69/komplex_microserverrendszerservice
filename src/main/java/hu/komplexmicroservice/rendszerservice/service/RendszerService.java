@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.ContentHandler;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class RendszerService {
@@ -34,9 +35,13 @@ public class RendszerService {
         TMenu2s = tmenu2Repository.findByIdWithDepartures(TMenu2Ids, pageable.getSort());
         return TMenu2s;
     }
-    public List<TMenu2> findById(long id){
+    public List<TMenu2> findById(Long id){
         return tmenu2Repository.findTMenu2ById(id);
     }
+    public List<TMenu2> findByUserId(UUID userId){
+        return tmenu2Repository.findByUserId(userId);
+    }
+
 
 
 }

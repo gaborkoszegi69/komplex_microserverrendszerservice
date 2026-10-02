@@ -30,6 +30,8 @@ import jakarta.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
+
 import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T18:20:09.809915324+02:00[Europe/Budapest]")
@@ -57,24 +59,17 @@ public interface MenuControllerApi {
         }
     )
     @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/DMMenuapi/{userid}",
-        produces = { "application/json" },
-        consumes = { "multipart/form-data" }
+            method = RequestMethod.GET,
+            value = "/DMMenuapiuser",
+            produces = { "application/json" }
     )
     default ResponseEntity<List<TMenu2Dto>> getMenuByUserId(
-        @Parameter(name = "userid", description = "") @Valid @RequestParam(value = "userid", required = false) Long userid
+            @NotNull @Parameter(name = "userid", description = "", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "userid", required = true) String userid
     ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"rdbcon_postgresuser\" : \"\", \"rdbcon_user\" : \"\", \"rdbcon_password\" : \"\", \"rdbcon_host\" : \"\", \"rdbcon_postgrespassword\" : \"\", \"rdbcon_port\" : \"\", \"rdbcon_id\" : \"\", \"rdbcon_letre_felh_nev\" : \"\", \"rdbcon_title\" : \"\", \"rdbcon_databasename\" : \"\", \"rdbcon_letre_dat\" : \"\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
     }
 
+
+    
 }

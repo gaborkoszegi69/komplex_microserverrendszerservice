@@ -8,28 +8,24 @@ import hu.komplexmicroservice.rendszerservice.service.RendszerService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.SortDefault;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.UUID;
 
-import static com.netflix.appinfo.EurekaAccept.full;
 
 @RequiredArgsConstructor
 @RestController
@@ -53,10 +49,10 @@ public class MenuController implements MenuControllerApi {
 
     @Override
     public ResponseEntity<List<TMenu2Dto>> getMenuByUserId(
-    @Parameter(name = "userid", description = "") @Valid @RequestParam(value = "userid", required = false) Long userid
+            @NotNull @Parameter(name = "userid", description = "", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "userid", required = true) String userid
     ) {
-        List<hu.komplexmicroservice.rendszerservice.model.TMenu2> menu2s;
-        List<TMenu2> TMenu2s = rendszerServicer.findById(userid);
+        UUID UserId = UUID.fromString(userid);
+        List<TMenu2> TMenu2s = rendszerServicer.findByUserId(UserId);
         return ResponseEntity.ok(menu2Mapper.TMenu2sToDtos(TMenu2s));
     }
 
