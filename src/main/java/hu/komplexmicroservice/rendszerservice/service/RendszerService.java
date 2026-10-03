@@ -1,6 +1,8 @@
 package hu.komplexmicroservice.rendszerservice.service;
 
 import hu.komplexmicroservice.rendszerservice.model.TMenu2;
+import hu.komplexmicroservice.rendszerservice.model.TMenuparameterek1;
+import hu.komplexmicroservice.rendszerservice.repository.TMenuparameterek1Repository;
 import hu.komplexmicroservice.rendszerservice.repository.Tmenu2Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,31 +19,16 @@ import java.util.UUID;
 public class RendszerService {
     @Autowired
     private Tmenu2Repository tmenu2Repository;
-    public List<TMenu2> findTmenu2All() {
-        return  tmenu2Repository.findTmenu2All();
-    }
+    @Autowired
+    private TMenuparameterek1Repository tmenuparameterek1Repository;
+
     @Transactional
-    //	@Cacheable("pagedRendszerDbkapcsolatokWithRelationships")
-    public List<TMenu2> findAllWithTmenu2s(Pageable pageable) {
-//		List<Airport> airports = airportRepository.findAllWithAddressAndDepartures(pageable); --> in memory lapozás, minden sor bejön a DB-ből
-//		airports = airportRepository.findAllWithArrivals(pageable);
-
-        List<TMenu2> TMenu2s = tmenu2Repository.findAllWithTmenu2s(pageable);
-        List<Long> TMenu2Ids = TMenu2s.stream().map(TMenu2::getMenu_id).toList();
-
-        TMenu2s = tmenu2Repository.findByIdWithArrivals(TMenu2Ids);
-
-
-        TMenu2s = tmenu2Repository.findByIdWithDepartures(TMenu2Ids, pageable.getSort());
-        return TMenu2s;
-    }
-    public List<TMenu2> findById(Long id){
-        return tmenu2Repository.findTMenu2ById(id);
-    }
     public List<TMenu2> findByUserId(UUID userId){
         return tmenu2Repository.findByUserId(userId);
+
     }
-
-
-
+    @Transactional
+    public List<TMenuparameterek1> findByMenuId(int menuId){
+        return tmenuparameterek1Repository.findByMenuId(menuId);
+    }
 }

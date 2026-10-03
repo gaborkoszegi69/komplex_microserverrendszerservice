@@ -28,23 +28,12 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T18:20:09.809915324+02:00[Europe/Budapest]")
 public class TMenuparameterekDto {
 
-  @JsonProperty("menuprm_id")
-  private Long menuprmId = null;
-
-  @JsonProperty("menuprm_menu_id")
-  private Long menuprmMenuId = null;
-
-  @JsonProperty("menuprm_name")
-  private String menuprmName = null;
-
-  @JsonProperty("menuprm_value")
-  private String menuprmValue = null;
-
-  @JsonProperty("menuprm_letre_felh_nev")
-  private String menuprmLetreFelhNev = null;
-
-  @JsonProperty("menuprm_letre_dat")
-  private String menuprmLetreDat = null;
+  private Long menuprm_id;
+  private Long menuprm_menu_id;
+  private String menuprm_name;
+  private String menuprm_value;
+  private String menuprm_letrefelhnev;
+  private String menuprm_letredat;
 
 }
 

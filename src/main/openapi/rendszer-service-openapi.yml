@@ -33,10 +33,10 @@ paths:
      get:
        tags:
          - MenuParameterekController
-       operationId: getParameterekByUserId
+       operationId: getmenuParameterek
        parameters:
          - name: menu_id
-           in: path
+           in: query
            required: true
            schema:
              type: integer

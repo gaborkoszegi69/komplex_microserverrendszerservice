@@ -28,18 +28,18 @@ public interface Tmenu2Repository   extends JpaRepository<TMenu2, Long>,
     }
 
 
-    @NativeQuery("SELECT  menu.* From \"01_sys\".get_menu_web_1  ( null::public.a_uuid_id_mut) menu ")
+    @NativeQuery("SELECT  menu.* From \"01_sys\".get_menu_web_1  ( null) menu ")
     public List<TMenu2> findTmenu2All();
 
-    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null::public.a_uuid_id_mut) menu ")
+    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null) menu ")
     List<TMenu2> findAllWithTmenu2s(Pageable pageable);
 
-    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null::public.a_uuid_id_mut) menu WHERE menu.menu_id IN :ids")
+    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null) menu WHERE menu.menu_id IN :ids")
     List<TMenu2> findByIdWithArrivals(List<Long> ids);
 
-    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null::public.a_uuid_id_mut) menu WHERE menu.menu_id IN :ids")
+    @NativeQuery("SELECT  menu.* FROM \"01_sys\".get_menu_web_1  ( null) menu WHERE menu.menu_id IN :ids")
     List<TMenu2> findByIdWithDepartures(List<Long> ids, Sort sort);
-    @NativeQuery("SELECT menu FROM \"01_sys\".get_menu_web_1  ( Null::public.a_uuid_id_mut) where menu_id=:id menu ")
+    @NativeQuery("SELECT menu FROM \"01_sys\".get_menu_web_1  ( Null) where menu_id=:id menu ")
     public List<TMenu2> findTMenu2ById(long id);
     @NativeQuery("SELECT menu.* FROM \"01_sys\".get_menu_web_1 (:userId) menu")
     List<TMenu2> findByUserId(UUID userId);

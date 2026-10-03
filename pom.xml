@@ -248,6 +248,7 @@
                                     <!-- output to project base so generated Java files land in src/main/java -->
                                     <output>${project.basedir}</output>
                                     <generatorName>spring</generatorName>
+                                    <generateSupportingFiles>false</generateSupportingFiles>
                                     <configOptions>
                                         <useTags>true</useTags>
                                         <dateLibrary>java8-datetime</dateLibrary>

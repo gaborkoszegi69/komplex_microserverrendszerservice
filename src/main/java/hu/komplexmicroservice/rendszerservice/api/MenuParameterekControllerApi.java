@@ -5,6 +5,7 @@
  */
 package hu.komplexmicroservice.rendszerservice.api;
 
+import hu.komplexmicroservice.rendszerservice.api.model.TMenuparameterekDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -31,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-26T18:20:09.809915324+02:00[Europe/Budapest]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-03T17:17:31.233299440+02:00[Europe/Budapest]")
 @Validated
 @Tag(name = "MenuParameterekController", description = "the MenuParameterekController API")
 public interface MenuParameterekControllerApi {
@@ -41,28 +42,27 @@ public interface MenuParameterekControllerApi {
     }
 
     /**
-     * POST /DMmenuparameterekapi
+     * GET /DMMenuparameterekonemenu
      *
-     * @param menuId  (optional)
+     * @param menuId  (required)
      * @return OK (status code 200)
      */
     @Operation(
-        operationId = "getParameterekByUserId",
-        tags = { "MenuParameterekController" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class))
-            })
-        }
+            operationId = "getmenuParameterek",
+            tags = { "MenuParameterekController" },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "OK", content = {
+                            @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class))
+                    })
+            }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/DMmenuparameterekapi",
-        produces = { "application/json" },
-        consumes = { "multipart/form-data" }
+            method = RequestMethod.GET,
+            value = "/DMMenuparameterekonemenu",
+            produces = { "application/json" }
     )
-    default ResponseEntity<Object> getParameterekByUserId(
-        @Parameter(name = "menu_id", description = "") @Valid @RequestParam(value = "menu_id", required = false) Object menuId
+    default ResponseEntity<List<TMenuparameterekDto>> getmenuParameterek(
+            @NotNull @Parameter(name = "menu_id", description = "", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "menu_id", required = true) int menuId
     ) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
